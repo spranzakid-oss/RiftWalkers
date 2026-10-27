@@ -1,8 +1,18 @@
 # Roadmap
 
-A checked task has implementation and available evidence. Manual acceptance
-stays unchecked until actually performed. The user's combat request replaces the
-original placeholder M1–M3 plan with the concrete milestone below.
+A checked task has implementation or documentation and available evidence. Manual
+acceptance stays unchecked until actually performed. GAME_DESIGN.md is the approved
+full-game direction; BUILD_PLAN.md gives the gated order. No gameplay was added by
+the current design-document task. Preserve the existing generic prototype.
+
+## D0 — Approved design baseline
+
+- [x] Archive the exact supplied design prompt and continuing development workflow.
+- [x] Create all 15 requested root design documents with provisional/TBD labels.
+- [x] Record all 14 families, 28 branches, and 70 long-term forms in JSON.
+- [x] Record and validate provisional economy examples, resource concurrency, and purchase gates.
+- [x] Add design validation to the existing automated runner and update tracking.
+- [ ] Review and merge the separate design pull request; resolve open questions before their systems ship.
 
 ## M0 — Project foundation (complete)
 
@@ -28,19 +38,22 @@ in M1's stronger playable acceptance checklist below.
 - [ ] Run two-player local-server acceptance and compare damage on both clients.
 - [ ] Run controller hardware checks and record actual results.
 - [ ] Measure responsiveness and ground/air balance; tune and fix confirmed issues.
-- [ ] Create/review the combat pull request and merge when accepted.
+- [x] Merge the generic combat implementation into main through pull request #2.
 
 Start with the first manual check in [docs/combat-prototype.md](docs/combat-prototype.md).
 Do not describe the milestone as playtested or accepted before those results exist.
 
-## M2 — Plan the next slice (not started)
+## M2 — Two contrasting prototype fighters (designed; not implemented)
 
-- [ ] Use M1 test results and the user's direction to choose the next small slice.
-- [ ] Write its limits and acceptance checks before implementation.
-- [ ] Decide whether a character-specific moveset or another system is appropriate.
+- [ ] Complete M1 manual acceptance and fix confirmed issues.
+- [ ] Specify unassigned kit roles and test rules for Thundermaw and Worldforge.
+- [ ] Implement their provisional kits only in a separately requested coding task.
+- [ ] Normalize initial prototype power and test their contrasting styles.
 
-Rift Walking, evolution, monetization, additional fighters, and broader PvP
-systems remain future work. This roadmap alone does not authorize them.
+Then follow BUILD_PLAN.md: Ember Rift → one full acquisition/evolution journey →
+optional duo → PvP, and later one carefully developed family at a time. The full
+70-form roster and turn-based 3v3 are long-term work. Purchases require separate
+activation approval. This roadmap does not authorize implementation in a docs task.
 
 ## Session handoff
 

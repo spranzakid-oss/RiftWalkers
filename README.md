@@ -10,6 +10,12 @@ light/heavy strings, health, damage, hit reactions, an arena, and a training dum
 The broader game features above remain plans. **Roblox Studio playtesting has
 not been performed here.** See [PROJECT_STATUS.md](PROJECT_STATUS.md) for progress.
 
+The approved full-game design now lives in [GAME_DESIGN.md](GAME_DESIGN.md), which
+links all 15 topic documents and the machine-readable roster/economy. The original
+prompt is [archived here](docs/approved-design-prompt.md). These are plans, not a
+claim that the full roster or progression already exists. Balance figures remain
+provisional. Read [BUILD_PLAN.md](BUILD_PLAN.md) for the gated development order.
+
 Development uses OpenAI Codex, GitHub, Roblox Studio, and **Rojo**. Rojo turns
 files in this repository into Roblox objects and can keep them in sync with
 Studio. **Luau** is Roblox's scripting language; its source files live in `src`.
@@ -91,7 +97,7 @@ python3 tests/run_checks.py
 ```
 
 Install the Luau CLI as explained in [tests/README.md](tests/README.md) first.
-The runner checks packaging, compiles Luau, tests pure combat rules, and produces
+The runner validates design data, checks packaging, compiles Luau, tests pure combat rules, and produces
 `build/RiftWalkers.rbxlx`, which you can open in Studio. `build` is ignored by Git
 because it can be recreated. These checks do not run Roblox engine gameplay.
 GitHub Actions runs the same checks and, on success, saves the place as the
@@ -140,14 +146,14 @@ configuration, architecture, and the solo/controller/two-player Studio checklist
 
 Read [AGENTS.md](AGENTS.md), then [PROJECT_STATUS.md](PROJECT_STATUS.md) and
 [ROADMAP.md](ROADMAP.md). Future sessions should continue the next incomplete
-task, run the available checks, and update the records. The next task is the
-manual Milestone 1 Studio acceptance checklist. Tune or fix confirmed problems
-before adding features. Additional fighters, Rift Walking, evolution, and
-monetization are not part of this prototype.
+task, run the available checks, and update the records. Review the design baseline,
+then run the manual Milestone 1 Studio acceptance checklist. Tune or fix confirmed
+problems before extending it into the two contrasting prototype fighters in the
+build plan. This documentation change implements no new fighter or game system.
 
-## Put the prototype onto main
+## Review and merge these design changes
 
-The combat branch is `development/combat-prototype`. A **branch** holds proposed
+The design branch is `development/authoritative-design`. A **branch** holds proposed
 changes without changing `main`. A **pull request** lets you review and merge
 those changes on GitHub.
 
@@ -155,12 +161,12 @@ If the branch is only committed locally, push it from the checkout containing
 the commit:
 
 ```sh
-git push -u origin development/combat-prototype
+git push -u origin development/authoritative-design
 ```
 
 On GitHub, choose **Compare & pull request**, set the base to `main` and the
-compare branch to `development/combat-prototype`, and review the files. Wait for
+compare branch to `development/authoritative-design`, and review the files. Wait for
 the project checks to pass, then select **Merge pull request** (or **Squash and
-merge**) and confirm. This makes the prototype part of `main`. Do not force-push or
+merge**) and confirm. This makes the design baseline part of `main`. Do not force-push or
 replace `main`. The session's final report will say whether the branch was
 pushed and whether a pull request was actually created.

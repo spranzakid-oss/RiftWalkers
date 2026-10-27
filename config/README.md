@@ -15,3 +15,8 @@ move strings, damage, timings, hitboxes, movement, camera, and arena dimensions.
 Future private server settings belong under `src/server`. Never put passwords,
 API keys, or other secrets in source control or shared/client code. This prototype
 does not require any secrets or external game services.
+
+`config/design/roster.json` and `config/design/economy.json` are machine-readable
+planning data; see their [field guide](design/README.md). They are not synced to
+Roblox and do not automatically change the existing prototype's configuration.
+All balance numbers there remain provisional, with unspecified values left null.

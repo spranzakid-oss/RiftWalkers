@@ -1,0 +1,991 @@
+{
+  "schema_version": 1,
+  "status": "approved_direction",
+  "content_status": "planned_not_implemented",
+  "long_term_not_launch": true,
+  "base_elements": [
+    "Fire",
+    "Water",
+    "Air",
+    "Earth",
+    "Light",
+    "Shadow",
+    "Spirit"
+  ],
+  "hybrid_elements": [
+    "Steam",
+    "Lightning",
+    "Magma",
+    "Solar",
+    "Ash",
+    "Soulfire",
+    "Frost",
+    "Bloom",
+    "Purity",
+    "Abyss",
+    "Renewal",
+    "Sand",
+    "Aurora",
+    "Veil",
+    "Echo",
+    "Crystal",
+    "Blight",
+    "Golem",
+    "Eclipse",
+    "Celestial",
+    "Phantom"
+  ],
+  "rarities": [
+    "Common",
+    "Uncommon",
+    "Rare",
+    "Epic",
+    "Legendary",
+    "Mythic"
+  ],
+  "starter_form_ids": [
+    "embercub",
+    "zephy",
+    "pebblit"
+  ],
+  "families": [
+    {
+      "id": "embercub",
+      "base_form_id": "embercub",
+      "branches": [
+        {
+          "id": "embercub_magma",
+          "hybrid_direction": "Magma",
+          "form_ids": [
+            "embercub",
+            "lavapaw",
+            "caldera_rex"
+          ]
+        },
+        {
+          "id": "embercub_lightning",
+          "hybrid_direction": "Lightning",
+          "form_ids": [
+            "embercub",
+            "voltclaw",
+            "thundermaw"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kilnox",
+      "base_form_id": "kilnox",
+      "branches": [
+        {
+          "id": "kilnox_solar",
+          "hybrid_direction": "Solar",
+          "form_ids": [
+            "kilnox",
+            "sunforge",
+            "helioforge"
+          ]
+        },
+        {
+          "id": "kilnox_soulfire",
+          "hybrid_direction": "Soulfire",
+          "form_ids": [
+            "kilnox",
+            "pyresoul",
+            "phoenixen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dripple",
+      "base_form_id": "dripple",
+      "branches": [
+        {
+          "id": "dripple_frost",
+          "hybrid_direction": "Frost",
+          "form_ids": [
+            "dripple",
+            "frostfin",
+            "glaciadon"
+          ]
+        },
+        {
+          "id": "dripple_bloom",
+          "hybrid_direction": "Bloom",
+          "form_ids": [
+            "dripple",
+            "mossgill",
+            "tidebloom"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tidalyn",
+      "base_form_id": "tidalyn",
+      "branches": [
+        {
+          "id": "tidalyn_abyss",
+          "hybrid_direction": "Abyss",
+          "form_ids": [
+            "tidalyn",
+            "abyssail",
+            "leviadusk"
+          ]
+        },
+        {
+          "id": "tidalyn_steam",
+          "hybrid_direction": "Steam",
+          "form_ids": [
+            "tidalyn",
+            "vaporin",
+            "tempestume"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zephy",
+      "base_form_id": "zephy",
+      "branches": [
+        {
+          "id": "zephy_lightning",
+          "hybrid_direction": "Lightning",
+          "form_ids": [
+            "zephy",
+            "stormlet",
+            "thunderwing"
+          ]
+        },
+        {
+          "id": "zephy_sand",
+          "hybrid_direction": "Sand",
+          "form_ids": [
+            "zephy",
+            "dunerun",
+            "sandstrider"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veystrix",
+      "base_form_id": "veystrix",
+      "branches": [
+        {
+          "id": "veystrix_veil",
+          "hybrid_direction": "Veil",
+          "form_ids": [
+            "veystrix",
+            "nightgale",
+            "veilreaper"
+          ]
+        },
+        {
+          "id": "veystrix_echo",
+          "hybrid_direction": "Echo",
+          "form_ids": [
+            "veystrix",
+            "resonair",
+            "sonifury"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pebblit",
+      "base_form_id": "pebblit",
+      "branches": [
+        {
+          "id": "pebblit_crystal",
+          "hybrid_direction": "Crystal",
+          "form_ids": [
+            "pebblit",
+            "crysthorn",
+            "gemgolem"
+          ]
+        },
+        {
+          "id": "pebblit_blight",
+          "hybrid_direction": "Blight",
+          "form_ids": [
+            "pebblit",
+            "rotroot",
+            "blightback"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terragon",
+      "base_form_id": "terragon",
+      "branches": [
+        {
+          "id": "terragon_magma",
+          "hybrid_direction": "Magma",
+          "form_ids": [
+            "terragon",
+            "magmarok",
+            "worldforge"
+          ]
+        },
+        {
+          "id": "terragon_bloom",
+          "hybrid_direction": "Bloom",
+          "form_ids": [
+            "terragon",
+            "groveguard",
+            "worldroot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "glimlet",
+      "base_form_id": "glimlet",
+      "branches": [
+        {
+          "id": "glimlet_purity",
+          "hybrid_direction": "Purity",
+          "form_ids": [
+            "glimlet",
+            "lustrill",
+            "pearltide"
+          ]
+        },
+        {
+          "id": "glimlet_solar",
+          "hybrid_direction": "Solar",
+          "form_ids": [
+            "glimlet",
+            "dayflare",
+            "sunlumen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "solari",
+      "base_form_id": "solari",
+      "branches": [
+        {
+          "id": "solari_crystal",
+          "hybrid_direction": "Crystal",
+          "form_ids": [
+            "solari",
+            "prismane",
+            "crownprism"
+          ]
+        },
+        {
+          "id": "solari_solar",
+          "hybrid_direction": "Solar",
+          "form_ids": [
+            "solari",
+            "sunseraph",
+            "dawnarch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duskit",
+      "base_form_id": "duskit",
+      "branches": [
+        {
+          "id": "duskit_abyss",
+          "hybrid_direction": "Abyss",
+          "form_ids": [
+            "duskit",
+            "undertide",
+            "abyssfang"
+          ]
+        },
+        {
+          "id": "duskit_veil",
+          "hybrid_direction": "Veil",
+          "form_ids": [
+            "duskit",
+            "shademist",
+            "nightslip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nocthorn",
+      "base_form_id": "nocthorn",
+      "branches": [
+        {
+          "id": "nocthorn_phantom",
+          "hybrid_direction": "Phantom",
+          "form_ids": [
+            "nocthorn",
+            "phantomire",
+            "dreadwraith"
+          ]
+        },
+        {
+          "id": "nocthorn_blight",
+          "hybrid_direction": "Blight",
+          "form_ids": [
+            "nocthorn",
+            "gravemoss",
+            "ruinshade"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wispin",
+      "base_form_id": "wispin",
+      "branches": [
+        {
+          "id": "wispin_phantom",
+          "hybrid_direction": "Phantom",
+          "form_ids": [
+            "wispin",
+            "etherling",
+            "ghostlight"
+          ]
+        },
+        {
+          "id": "wispin_echo",
+          "hybrid_direction": "Echo",
+          "form_ids": [
+            "wispin",
+            "echowisp",
+            "reverbloom"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eidolon",
+      "base_form_id": "eidolon",
+      "branches": [
+        {
+          "id": "eidolon_soulfire",
+          "hybrid_direction": "Soulfire",
+          "form_ids": [
+            "eidolon",
+            "soulbrand",
+            "astrablaze"
+          ]
+        },
+        {
+          "id": "eidolon_echo",
+          "hybrid_direction": "Echo",
+          "form_ids": [
+            "eidolon",
+            "whisperwind",
+            "choirgeist"
+          ]
+        }
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "id": "embercub",
+      "name": "Embercub",
+      "family_id": "embercub",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "lavapaw",
+      "name": "Lavapaw",
+      "family_id": "embercub",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "caldera_rex",
+      "name": "Caldera Rex",
+      "family_id": "embercub",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "voltclaw",
+      "name": "Voltclaw",
+      "family_id": "embercub",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "thundermaw",
+      "name": "Thundermaw",
+      "family_id": "embercub",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "kilnox",
+      "name": "Kilnox",
+      "family_id": "kilnox",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "sunforge",
+      "name": "Sunforge",
+      "family_id": "kilnox",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "helioforge",
+      "name": "Helioforge",
+      "family_id": "kilnox",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "pyresoul",
+      "name": "Pyresoul",
+      "family_id": "kilnox",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "phoenixen",
+      "name": "Phoenixen",
+      "family_id": "kilnox",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "dripple",
+      "name": "Dripple",
+      "family_id": "dripple",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "frostfin",
+      "name": "Frostfin",
+      "family_id": "dripple",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "glaciadon",
+      "name": "Glaciadon",
+      "family_id": "dripple",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "mossgill",
+      "name": "Mossgill",
+      "family_id": "dripple",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "tidebloom",
+      "name": "Tidebloom",
+      "family_id": "dripple",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "tidalyn",
+      "name": "Tidalyn",
+      "family_id": "tidalyn",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "abyssail",
+      "name": "Abyssail",
+      "family_id": "tidalyn",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "leviadusk",
+      "name": "Leviadusk",
+      "family_id": "tidalyn",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "vaporin",
+      "name": "Vaporin",
+      "family_id": "tidalyn",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "tempestume",
+      "name": "Tempestume",
+      "family_id": "tidalyn",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "zephy",
+      "name": "Zephy",
+      "family_id": "zephy",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "stormlet",
+      "name": "Stormlet",
+      "family_id": "zephy",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "thunderwing",
+      "name": "Thunderwing",
+      "family_id": "zephy",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "dunerun",
+      "name": "Dunerun",
+      "family_id": "zephy",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "sandstrider",
+      "name": "Sandstrider",
+      "family_id": "zephy",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "veystrix",
+      "name": "Veystrix",
+      "family_id": "veystrix",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "nightgale",
+      "name": "Nightgale",
+      "family_id": "veystrix",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "veilreaper",
+      "name": "Veilreaper",
+      "family_id": "veystrix",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "resonair",
+      "name": "Resonair",
+      "family_id": "veystrix",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "sonifury",
+      "name": "Sonifury",
+      "family_id": "veystrix",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "pebblit",
+      "name": "Pebblit",
+      "family_id": "pebblit",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "crysthorn",
+      "name": "Crysthorn",
+      "family_id": "pebblit",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "gemgolem",
+      "name": "Gemgolem",
+      "family_id": "pebblit",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "rotroot",
+      "name": "Rotroot",
+      "family_id": "pebblit",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "blightback",
+      "name": "Blightback",
+      "family_id": "pebblit",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "terragon",
+      "name": "Terragon",
+      "family_id": "terragon",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "magmarok",
+      "name": "Magmarok",
+      "family_id": "terragon",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "worldforge",
+      "name": "Worldforge",
+      "family_id": "terragon",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "groveguard",
+      "name": "Groveguard",
+      "family_id": "terragon",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "worldroot",
+      "name": "Worldroot",
+      "family_id": "terragon",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "glimlet",
+      "name": "Glimlet",
+      "family_id": "glimlet",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "lustrill",
+      "name": "Lustrill",
+      "family_id": "glimlet",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "pearltide",
+      "name": "Pearltide",
+      "family_id": "glimlet",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "dayflare",
+      "name": "Dayflare",
+      "family_id": "glimlet",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "sunlumen",
+      "name": "Sunlumen",
+      "family_id": "glimlet",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "solari",
+      "name": "Solari",
+      "family_id": "solari",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "prismane",
+      "name": "Prismane",
+      "family_id": "solari",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "crownprism",
+      "name": "Crownprism",
+      "family_id": "solari",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "sunseraph",
+      "name": "Sunseraph",
+      "family_id": "solari",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "dawnarch",
+      "name": "Dawnarch",
+      "family_id": "solari",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "duskit",
+      "name": "Duskit",
+      "family_id": "duskit",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "undertide",
+      "name": "Undertide",
+      "family_id": "duskit",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "abyssfang",
+      "name": "Abyssfang",
+      "family_id": "duskit",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "shademist",
+      "name": "Shademist",
+      "family_id": "duskit",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "nightslip",
+      "name": "Nightslip",
+      "family_id": "duskit",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "nocthorn",
+      "name": "Nocthorn",
+      "family_id": "nocthorn",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "phantomire",
+      "name": "Phantomire",
+      "family_id": "nocthorn",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "dreadwraith",
+      "name": "Dreadwraith",
+      "family_id": "nocthorn",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "gravemoss",
+      "name": "Gravemoss",
+      "family_id": "nocthorn",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "ruinshade",
+      "name": "Ruinshade",
+      "family_id": "nocthorn",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "wispin",
+      "name": "Wispin",
+      "family_id": "wispin",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "etherling",
+      "name": "Etherling",
+      "family_id": "wispin",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "ghostlight",
+      "name": "Ghostlight",
+      "family_id": "wispin",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "echowisp",
+      "name": "Echowisp",
+      "family_id": "wispin",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "reverbloom",
+      "name": "Reverbloom",
+      "family_id": "wispin",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "eidolon",
+      "name": "Eidolon",
+      "family_id": "eidolon",
+      "stage": 1,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "soulbrand",
+      "name": "Soulbrand",
+      "family_id": "eidolon",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "astrablaze",
+      "name": "Astrablaze",
+      "family_id": "eidolon",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "whisperwind",
+      "name": "Whisperwind",
+      "family_id": "eidolon",
+      "stage": 2,
+      "rarity": null,
+      "base_element": null
+    },
+    {
+      "id": "choirgeist",
+      "name": "Choirgeist",
+      "family_id": "eidolon",
+      "stage": 3,
+      "rarity": null,
+      "base_element": null
+    }
+  ],
+  "prototype_fighters": [
+    {
+      "form_id": "thundermaw",
+      "archetype": "fast Lightning rushdown",
+      "kit_status": "provisional_requires_playtesting",
+      "normalization": "equal_power_for_initial_prototype_tests",
+      "kit_names": [
+        "Momentum Charge",
+        "Spark Claw",
+        "Volt Breaker",
+        "Rising Fang",
+        "Arc Dash",
+        "Static Burst",
+        "Thunder Dive",
+        "Flash Step",
+        "Stormbreaker"
+      ],
+      "ultimate": "Stormbreaker",
+      "other_kit_roles": "unfinalized"
+    },
+    {
+      "form_id": "worldforge",
+      "archetype": "slow armored Magma bruiser",
+      "kit_status": "provisional_requires_playtesting",
+      "normalization": "equal_power_for_initial_prototype_tests",
+      "kit_names": [
+        "Stoneguard",
+        "Stonebreaker",
+        "Titan Slam",
+        "Crag Uppercut",
+        "Molten Charge",
+        "Eruption Field",
+        "Meteor Drop",
+        "Bedrock Counter",
+        "Worldbreaker"
+      ],
+      "ultimate": "Worldbreaker",
+      "other_kit_roles": "unfinalized"
+    }
+  ]
+}

@@ -35,6 +35,7 @@ Use the checksum for your own platform, not the Linux hash for a Windows archive
 
 | Check | What it establishes |
 | --- | --- |
+| `python3 tests/test_design_data.py` | 13 checks validate 14 families, 28 branches, 70 forms, exact names/kits against the archived prompt, provisional economy arithmetic, document links, and rejection of invalid data. No Roblox tools needed for this command. |
 | `python3 tests/test_project_structure.py` | 5 tests build a temporary place and inspect script classes, source paths, server/client separation, and excluded development files. |
 | `luau-compile --null` over source and test files | All Luau parses and compiles, including engine-dependent code. This does not typecheck Roblox APIs. |
 | `luau-analyze` on Config, CombatRules, and the spec | Pure modules/test code pass standalone type analysis. Engine scripts require Studio's Roblox types and are not covered by this check. |
@@ -52,3 +53,7 @@ No command above starts a Roblox server, simulates network ownership, validates
 engine APIs, exercises the camera, or tests a controller. Follow the concrete
 solo and two-player checklist in [docs/combat-prototype.md](../docs/combat-prototype.md).
 Record every actual test in TEST_LOG.md and any reproducible failure in BUGS.md.
+
+Design-data assertions capture this approved baseline. For later authorized
+balance changes, update the current data, documents, and validation expectations
+together and record the decision; preserve the original archived prompt as history.

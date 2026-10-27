@@ -1,6 +1,14 @@
 # Documentation
 
-Use this folder for design notes, setup explanations, and specifications as the project develops. No gameplay design is approved by the initial project layout.
+Use this folder for source briefs, setup explanations, and supporting specifications.
+The approved full-game design is indexed in [GAME_DESIGN.md](../GAME_DESIGN.md).
+Its 15 root documents distinguish planned direction, provisional balance, and
+the smaller implemented generic prototype. New documentation does not add gameplay.
+
+The exact [approved prompt](approved-design-prompt.md) and continuing
+[development workflow](development-workflow.md) are preserved here. Existing
+[combat prototype instructions](combat-prototype.md) remain the manual Studio
+acceptance checklist. Their original one-fighter implementation is preserved.
 
 The main handoff files live at the top of the repository:
 

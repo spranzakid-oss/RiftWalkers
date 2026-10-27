@@ -57,6 +57,41 @@ Next: run the full manual acceptance matrix in `docs/combat-prototype.md`, then
 log actual Studio version/results and any reproducible bugs. Do not treat cloud
 policy tests or a built place as proof of Roblox gameplay behavior.
 
+## 2026-10-27 — Authoritative design baseline
+
+Scope: documentation, design-only JSON, semantic validation, and handoff updates.
+No gameplay code or runtime values changed. Before edits and again before delivery,
+fetch plus `git ls-remote origin refs/heads/main` confirmed
+`a27d8f1ffdb8721a528f0b258ef76da6a77a1762`. The new branch is
+`development/authoritative-design`, created from that exact main with a clean tree.
+Main now includes the prior combat implementation through pull request #2.
+
+Executed in the repository root with Python 3.12.14, Rojo 7.6.1, Luau CLI 0.744:
+
+```sh
+PATH=/workspace/.tools/rojo/7.6.1:/workspace/.tools/luau/0.744:$PATH python3 tests/run_checks.py
+```
+
+| Check | Actual result |
+| --- | --- |
+| Design validation | Passed: 13 cases, 0 failed/skipped. Exact 14 families/28 branches/70 forms and named kits match the archived brief. JSON references, provisional values, economic arithmetic, local links, and invalid-data cases checked. |
+| Existing packaging suite | Passed: 5 tests, 0 failed/skipped. |
+| Existing combat policies | Passed: 28 cases, 0 failed/skipped. |
+| Luau compilation / pure module analysis | Passed: all 8 source/test files compile; pure modules/spec analyze cleanly. |
+| Rojo build | Passed: generated the existing prototype place in ignored build/. |
+| Source preservation | Passed: `git diff --exit-code origin/main -- src default.project.json rokit.toml` reports no differences. |
+| Latest-main recheck | Passed: remote main and task merge base agree on the full SHA above; no newer main to integrate. |
+| Whitespace | Passed: `git diff --check`. |
+| Independent design review | Completed: checked brief coverage, provisional/TBD boundaries, resource concurrency, ranked fairness, and first-journey gaps. No concrete contradictions found. |
+| Hosted GitHub CI | Not observed here; the existing workflow runs the updated full runner. |
+| Studio/manual behavior | Not run. This task adds no gameplay; previous M1 manual acceptance remains pending. |
+
+Total executed tests: **46 passed**, 0 failed, 0 skipped; compiler/analysis/build
+checks are additional operations, not extra test cases. Economic arithmetic is
+example consistency, not a measurement of live pacing or proof of full-game balance.
+Open design questions are in GAME_DESIGN.md. The exact source prompt is archived;
+no missing rarity, asset, recipe, price, or live product was invented.
+
 ## Future entry template
 
 Copy this format when adding results:

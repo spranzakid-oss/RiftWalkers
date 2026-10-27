@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "status": "provisional_balance",
+  "content_status": "planned_not_implemented",
+  "source": "docs/approved-design-prompt.md",
+  "note": "Every numeric balance value is provisional. Null means not specified; it does not mean zero or free.",
+  "acquisition": {
+    "echo_requirements": {
+      "Common": 4,
+      "Uncommon": 10,
+      "Rare": 24,
+      "Epic": 60,
+      "Legendary": 120,
+      "Mythic": 240
+    },
+    "hunt_example": {
+      "duration_minutes": 6,
+      "targeted_echoes": 2
+    },
+    "permanent_unlocks": true,
+    "discovery_required": true,
+    "earlier_forms_selectable": true
+  },
+  "evolution": {
+    "fragments_per_core": 5,
+    "example": {
+      "from_form_id": "voltclaw",
+      "to_form_id": "thundermaw",
+      "sigils": {
+        "element": "Lightning",
+        "amount": 480
+      },
+      "guardian_cores": 12,
+      "mastery_xp": 6000,
+      "trial": "Storm Trial"
+    },
+    "trial_duration_minutes": null,
+    "materials_accumulate_simultaneously": true
+  },
+  "hunt_rewards": {
+    "tier_ii_example": {
+      "rift_marks": 20,
+      "sigils": 8,
+      "targeted_echoes": 2,
+      "mastery_xp": 100,
+      "guardian_fragments": 1,
+      "duration_minutes": null,
+      "sigil_element": null
+    }
+  },
+  "rifts": {
+    "standard_expedition_target_minutes": {
+      "min": 6,
+      "max": 8
+    },
+    "duo_scaling": {
+      "enemy_hp_multiplier": 1.7,
+      "enemy_count_multiplier": 1.35,
+      "rounding_rule": null
+    }
+  },
+  "apex_active_hours": {
+    "Common": {
+      "min": 7,
+      "max": 12
+    },
+    "Uncommon": null,
+    "Rare": null,
+    "Epic": null,
+    "Legendary": null,
+    "Mythic": {
+      "min": 35,
+      "max": 50
+    }
+  },
+  "elements": {
+    "effective_multiplier": 1.15,
+    "resisted_multiplier": 0.9,
+    "neutral_multiplier": null,
+    "matchup_table": null,
+    "hybrid_recipes": null
+  },
+  "monetization": {
+    "paid_only_fighters": false,
+    "paid_only_moves": false,
+    "pvp_combat_advantages": false,
+    "initial_paid_random_chance_boosts": false,
+    "live_purchases_enabled": false,
+    "eligible_timer_basis": "active_eligible_rift_play_only",
+    "product_ids": null,
+    "prices": null,
+    "boost_multipliers": null,
+    "competitive_access_fairness_rule": null
+  },
+  "analysis_assumptions": [
+    "Tier II duration is not specified. Applying the separate six-minute Hunt example is an illustrative assumption only.",
+    "Thundermaw material analysis assumes a Lightning-rewarding Hunt with the example reward rates.",
+    "Concurrent materials use the largest required run count, not the sum.",
+    "Apex hours refer to the full progression target, not just base Echo acquisition or the single Thundermaw upgrade.",
+    "Creature rarities and other family evolution costs remain unspecified."
+  ]
+}

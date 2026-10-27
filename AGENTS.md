@@ -3,20 +3,28 @@
 ## Project and current scope
 
 Rift Walkers is a Roblox creature-fighting and exploration game written in Luau.
-The current milestone is the first playable arena combat prototype. The user
-authorized one test fighter, movement, camera, basic combat, and a training dummy
-after the foundation task. Do not treat planned features as implemented or
-manual Studio checks as completed. Rift Walking, evolution, monetization, and
-additional fighters remain outside this milestone. Follow the current user's
-request when deciding what work is authorized.
+The approved full-game baseline is indexed in `GAME_DESIGN.md`; the exact prompt
+is archived in `docs/approved-design-prompt.md`. The documentation task adds no
+gameplay. Existing main contains the generic M1 combat prototype; Studio acceptance
+is still pending. Thundermaw/Worldforge, Rifts, progression, co-op, and PvP services
+are approved design direction, not implemented content. Follow the current user's
+request; planned features do not authorize implementing them in a docs-only task.
+Do not create or enable live purchases without explicit user approval.
 
 ## Start every session
 
-1. Read `README.md`, `PROJECT_STATUS.md`, `ROADMAP.md`, `DECISIONS.md`, `BUGS.md`,
-   and the latest entries in `TEST_LOG.md` before changing files.
-2. Inspect `git status --short --branch` and recent commits. Preserve existing user
-   changes. Use the existing checkout; cloud tasks are already isolated, so do not
-   create a worktree unless the user asks for one.
+1. Read this file, `README.md`, `PROJECT_STATUS.md`, `ROADMAP.md`, `DECISIONS.md`,
+   `BUGS.md`, the latest `TEST_LOG.md`, and relevant design documents before edits.
+2. Verify the latest remote `main` before starting new changes: inspect Git status
+   and recent commits, fetch origin through existing authentication, and compare
+   `origin/main` with a read-only remote reference check. Start each new requested
+   task on a descriptive branch based on that verified main. Record its full SHA
+   in the handoff. Preserve local/uncommitted/unmerged work before switching or
+   integrating; never reset, discard, or force-push to satisfy this rule. Recheck
+   main before delivery and integrate newer changes deliberately. If access fails,
+   record that the check is unverified instead of claiming latest-main readiness.
+   Use the existing checkout; cloud tasks are already isolated, so do not create
+   a worktree unless the user asks for one.
 3. Find the earliest incomplete milestone in `ROADMAP.md`, then its next unchecked
    task. Use `PROJECT_STATUS.md` for the latest handoff and blockers. Continue that
    task within the user's authorized scope instead of restarting finished work.
@@ -34,6 +42,10 @@ request when deciding what work is authorized.
 - `src/shared` maps to `ReplicatedStorage.Shared`: reusable modules visible to
   both sides. Ordinary `*.luau` files become ModuleScripts.
 - `docs`, `config`, and `tests` are development files and are not synced to Roblox.
+- Root design documents and `config/design/*.json` describe approved direction
+  and provisional values; they are not loaded by runtime code. Preserve missing
+  values as TBD/null instead of inventing creature rarities, recipes, or prices.
+  Keep numeric balance provisional until it has been finalized with evidence.
 - `.gitkeep` preserves an empty folder in Git; it is not game code. Remove one
   when a real tracked file replaces it in that folder.
 
@@ -91,6 +103,12 @@ discard user changes, or commit generated places, credentials, and local caches.
 Run checks before committing; keep commits focused. When asked to commit or
 prepare a pull request, do so using available access and report whether the
 branch was committed locally, pushed, or has an actual pull request.
+
+The user's continuing workflow is preserved in `docs/development-workflow.md`.
+Implement the next requested task, update tracking, push a separate task branch,
+and prepare a new pull request into main. Report when an actual PR is ready to
+review, with its link and outstanding checks. A prepared description or compare
+link does not establish that a PR exists or that it is accepted for merge.
 
 Finish with what changed, what checks ran, what remains untested, the branch or
 pull request when relevant, and the next incomplete task. Explain technical terms

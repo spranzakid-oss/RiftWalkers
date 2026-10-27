@@ -10,6 +10,10 @@ failures here with reproduction steps; do not silently mark them passed.
 No confirmed uncorrected defects are recorded. BUG-002's code correction still
 needs manual Studio verification; see its record below and the camera checklist.
 
+The documentation/data task introduced no confirmed gameplay defect. Its design
+open questions are recorded in GAME_DESIGN.md rather than misreported as runtime
+bugs. Existing manual verification remains pending; source code was preserved.
+
 ## Resolved during M1 review
 
 ### BUG-001 — A frame hitch could skip an attack's entire active window

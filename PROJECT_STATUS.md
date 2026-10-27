@@ -2,7 +2,29 @@
 
 Last updated: 2026-10-27
 
-## Current milestone: M1 — Playable combat prototype
+## Current task: authoritative design baseline (documentation only)
+
+The supplied full-game design prompt is now preserved in
+[docs/approved-design-prompt.md](docs/approved-design-prompt.md). Start at
+[GAME_DESIGN.md](GAME_DESIGN.md) for all 15 requested design documents and
+[BUILD_PLAN.md](BUILD_PLAN.md) for the development order. Machine-readable data
+in `config/design` represents all 14 families, 28 branches, and 70 long-term
+forms, plus provisional economy examples. Unspecified assignments stay null/TBD.
+No new gameplay, assets, purchases, or runtime balance changes were made.
+
+Before edits, native fetch and remote reference checks verified main at
+`a27d8f1ffdb8721a528f0b258ef76da6a77a1762`. The working tree was clean, and
+`development/authoritative-design` was created from that exact main. The completed
+foundation and generic combat implementation are preserved. Continuing latest-main,
+tracking, and new-PR requirements are recorded in AGENTS.md and
+[docs/development-workflow.md](docs/development-workflow.md).
+
+Design validation: 13 tests pass, including exact roster/kit transcription,
+branch references, provisional economy arithmetic, links, and invalid-data cases.
+The full existing check suite is recorded in TEST_LOG.md. All future balance
+values and kits remain provisional; the 70-form list is not a launch requirement.
+
+## Preserved milestone: M1 — Generic playable combat prototype
 
 Implementation and cloud validation are complete; manual Roblox Studio acceptance
 is **pending**. A build is ready for manual testing, not a verified playable release.
@@ -19,11 +41,11 @@ Implemented on `development/combat-prototype`:
 - Arena generation, death/respawn, dummy reset, keyboard/mouse/controller bindings.
 - Automated packaging, Luau compilation, and pure combat policy tests in CI.
 
-Implementation commit: `be0f2ba`. The branch was pushed to GitHub. An actual
-`gh pr create` attempt failed with `Forbidden` at `api.github.com/graphql`;
-**no combat pull request was opened**. The prepared description is in
-[docs/combat-pull-request.md](docs/combat-pull-request.md). Open a pull request
-from this branch into `main` using GitHub's web interface when reviewing.
+Implementation commit: `be0f2ba`. The combat branch was subsequently merged
+through pull request #2, verified in the latest main commit above. The previous
+CLI creation attempt was blocked; that historical failure does not mean the
+later web-created PR is still missing. The old prepared description remains in
+[docs/combat-pull-request.md](docs/combat-pull-request.md) as historical context.
 
 Five Python packaging tests and 28 Luau policy tests pass; all eight source/test
 Luau files compile, and pure module analysis passes. See [TEST_LOG.md](TEST_LOG.md).
@@ -31,11 +53,13 @@ These results do not validate Roblox physics, input hardware, or camera feel.
 
 ## Next incomplete task
 
-On Windows or macOS, follow [docs/combat-prototype.md](docs/combat-prototype.md)
+Review the new design documents and open questions. For the next gameplay task,
+on Windows or macOS follow [docs/combat-prototype.md](docs/combat-prototype.md)
 to build/open the place and run the **solo Studio acceptance checklist**, then
 the local-server **two-player** and controller checks. Record the Studio version,
 results, and any Output errors. Add reproducible failures to BUGS.md and fix them
-before expanding the prototype.
+before expanding the prototype. Then scope the normalized Thundermaw/Worldforge
+comparison in BUILD_PLAN.md; these named fighters are designed, not implemented.
 
 ## Limitations and blockers
 
@@ -51,7 +75,8 @@ before expanding the prototype.
 
 ## Completed and deferred work
 
-M0 foundation setup was merged into `main` through pull request #1. The previous
+M0 foundation setup was merged into `main` through pull request #1 and the generic
+M1 implementation through #2. The previous
 empty-project Studio check is carried forward into the stronger M1 acceptance
 check rather than marked as performed. M1 is not fully accepted until those
 manual results are recorded. No Rift Walking, evolution, monetization,

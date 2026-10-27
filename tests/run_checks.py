@@ -14,6 +14,7 @@ def run(*command):
 
 
 def main():
+    run(sys.executable, "tests/test_design_data.py")
     for tool in ("rojo", "luau", "luau-compile", "luau-analyze"):
         if shutil.which(tool) is None:
             raise SystemExit(f"Missing {tool}. Follow tests/README.md to install the pinned tools.")

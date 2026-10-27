@@ -87,3 +87,42 @@ Record choices that future contributors need to understand. Explain why a choice
 - Consequence: Engine-dependent code still needs Studio API analysis, physics,
   controller, camera, and local-server playtests. CI uploads a generated place
   for reviewers when the workflow passes; generated files are not committed.
+
+## D010 — Preserve the approved full-game design without implementing it
+
+- Date: 2026-10-27
+- Status: Documentation baseline accepted from the user's supplied prompt.
+- Choice: Preserve the exact prompt, create the 15 named design documents, and
+  transcribe roster/economy data outside the Rojo runtime tree. All unfinalized
+  balance values and prototype kits stay provisional; missing values remain null/TBD.
+- Reason: The user requested authoritative documents before additional gameplay.
+- Consequence: All 14 families/28 branches/70 forms are long-term direction, not
+  a launch scope or implemented roster. Keep the existing generic M1 source intact.
+  Next character-specific work plans normalized Thundermaw/Worldforge, then the
+  gated sequence in BUILD_PLAN.md. Manual Studio acceptance remains unperformed.
+
+## D011 — Start new tasks from verified latest main and deliver separate PRs
+
+- Date: 2026-10-27
+- Status: Continuing user workflow requirement.
+- Choice: Fetch and compare remote main before edits; create a new task branch
+  from the verified baseline without discarding existing work. Update tracking,
+  test, commit/push, and prepare a new pull request. Recheck main before delivery.
+- Evidence: This task starts at `a27d8f1ffdb8721a528f0b258ef76da6a77a1762`, which
+  merges combat PR #2 and contains the preserved implementation.
+- Consequence: A pushed branch or prepared description is not an opened PR.
+  Report real access blockers and actual review/merge readiness separately.
+
+## D012 — Preserve unresolved economy and competitive rules explicitly
+
+- Date: 2026-10-27
+- Status: Open design gates recorded, not resolved by invented specifications.
+- Choice: Calculate concurrent evolution materials using the maximum run count,
+  distinguish a single upgrade example from whole-journey Apex targets, and leave
+  creature rarities, recipes, Tier II duration/type, and most costs unassigned.
+- Reason: The supplied example is 60 eligible Hunts for each of three resources,
+  hence 60 simultaneous runs, not 180. A six-hour scenario assumes six-minute
+  runs; this does not finalize that tier or the full economy.
+- Consequence: Paid acceleration's indirect competitive advantage still needs
+  a fairness policy before purchases. Prototype-only normalization does not imply
+  release-wide ranked normalization. Prices, IDs, and live purchases stay unset.
