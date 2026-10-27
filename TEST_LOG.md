@@ -78,6 +78,8 @@ merged. Work is on `development/rojo-studio-sync`. Existing combat and
 | Startup scripts executing in Studio | Not run here. User must confirm both recognizable Output lines after Play. |
 | Saved-file sync into Studio | Not run here. User must save a local message edit, inspect the Studio source, then Stop/Play and confirm it. |
 | Hosted CI | Not observed here. |
+| Sync branch delivery | Passed: commit `33c179a` pushed to `development/rojo-studio-sync`. |
+| Sync PR creation | Blocked: `gh pr create` returned `Post https://api.github.com/graphql: Forbidden`; no sync PR opened. |
 
 Full check command, from the repository root:
 

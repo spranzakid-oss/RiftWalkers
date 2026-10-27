@@ -28,6 +28,12 @@ Next: the user follows the Windows guide, confirms both startup messages and a
 saved local edit in Studio, and reports the actual Studio version/results. Do
 not check off Studio synchronization or startup execution until that happens.
 
+Delivery: commit `33c179a` pushed to `development/rojo-studio-sync`. The actual
+PR creation attempt returned `api.github.com/graphql: Forbidden`, so no sync PR
+was opened by this session. A description is prepared in
+[docs/sync-pull-request.md](docs/sync-pull-request.md); the pushed branch can be
+retrieved on Windows and reviewed against main.
+
 ## Preserved milestone: M1 — Playable combat prototype
 
 Implementation and cloud validation are complete; manual Roblox Studio acceptance
