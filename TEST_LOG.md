@@ -85,6 +85,8 @@ PATH=/workspace/.tools/rojo/7.6.1:/workspace/.tools/luau/0.744:$PATH python3 tes
 | Independent design review | Completed: checked brief coverage, provisional/TBD boundaries, resource concurrency, ranked fairness, and first-journey gaps. No concrete contradictions found. |
 | Hosted GitHub CI | Not observed here; the existing workflow runs the updated full runner. |
 | Studio/manual behavior | Not run. This task adds no gameplay; previous M1 manual acceptance remains pending. |
+| Branch delivery | Passed: design commit `b37a3d7` pushed to `development/authoritative-design`. |
+| New design PR | Blocked: actual `gh pr create` returned `Post https://api.github.com/graphql: Forbidden`. No new PR opened; description prepared in docs/design-pull-request.md. |
 
 Total executed tests: **46 passed**, 0 failed, 0 skipped; compiler/analysis/build
 checks are additional operations, not extra test cases. Economic arithmetic is

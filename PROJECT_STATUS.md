@@ -24,6 +24,13 @@ branch references, provisional economy arithmetic, links, and invalid-data cases
 The full existing check suite is recorded in TEST_LOG.md. All future balance
 values and kits remain provisional; the 70-form list is not a launch requirement.
 
+Delivery: design commit `b37a3d7` was pushed to `development/authoritative-design`.
+The new `gh pr create` attempt returned `Post https://api.github.com/graphql:
+Forbidden`; **no design PR was opened by this session**. The reviewable branch
+and [prepared description](docs/design-pull-request.md) are available. Open a
+new GitHub pull request from this branch into main; check actual hosted CI before
+merging. Local checks passed; hosted CI has not been observed here.
+
 ## Preserved milestone: M1 — Generic playable combat prototype
 
 Implementation and cloud validation are complete; manual Roblox Studio acceptance
