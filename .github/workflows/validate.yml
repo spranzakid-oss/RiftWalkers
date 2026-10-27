@@ -27,9 +27,22 @@ jobs:
           unzip -o "$RUNNER_TEMP/rojo.zip" rojo -d "$RUNNER_TEMP/rojo-bin"
           chmod +x "$RUNNER_TEMP/rojo-bin/rojo"
           echo "$RUNNER_TEMP/rojo-bin" >> "$GITHUB_PATH"
-      - name: Test project structure and Rojo build
-        run: python3 tests/test_project_structure.py
-      - name: Build Roblox place
+      - name: Install pinned Luau CLI release
+        shell: bash
         run: |
-          mkdir -p build
-          rojo build default.project.json --output build/RiftWalkers.rbxlx
+          set -euo pipefail
+          curl --fail --location --retry 3 \
+            https://github.com/luau-lang/luau/releases/download/0.744/luau-ubuntu.zip \
+            --output "$RUNNER_TEMP/luau.zip"
+          echo "6506f0852c623aaffcb28494aac16c26dc04a269ea0e16cc0aafc8c8ac79f3ec  $RUNNER_TEMP/luau.zip" | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/luau-bin"
+          unzip -o "$RUNNER_TEMP/luau.zip" -d "$RUNNER_TEMP/luau-bin"
+          chmod +x "$RUNNER_TEMP/luau-bin/luau" "$RUNNER_TEMP/luau-bin/luau-compile" "$RUNNER_TEMP/luau-bin/luau-analyze"
+          echo "$RUNNER_TEMP/luau-bin" >> "$GITHUB_PATH"
+      - name: Run project, compiler, and combat checks
+        run: python3 tests/run_checks.py
+      - name: Save place for manual Studio testing
+        uses: actions/upload-artifact@v4
+        with:
+          name: RiftWalkers-prototype
+          path: build/RiftWalkers.rbxlx

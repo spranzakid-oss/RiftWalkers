@@ -21,7 +21,7 @@ Record choices that future contributors need to understand. Explain why a choice
 ## D003 — Build only the project foundation in this task
 
 - Date: 2026-10-27
-- Status: Accepted; requested by the user.
+- Status: Historical setup scope; superseded for gameplay by the user's M1 request.
 - Choice: Create the project layout, configuration, documentation, and validation without game mechanics.
 - Reason: A clear starting point should exist before designing or implementing the first playable slice.
 - Consequence: Empty source folders are intentional. A successful setup or build must not be described as a working game. Gameplay needs a separate scoped task.
@@ -41,3 +41,49 @@ Record choices that future contributors need to understand. Explain why a choice
 - Choice: Use AGENTS.md for session instructions and the status, roadmap, decisions, bugs, and test log for handoffs.
 - Reason: Future sessions can continue from recorded work without relying on chat history.
 - Consequence: Update the relevant records with each task. Keep actual test results separate from plans and do not mark blocked or unrun checks as passed.
+
+## D006 — Implement the user-authorized combat slice as Milestone 1
+
+- Date: 2026-10-27
+- Status: Accepted for implementation; Studio acceptance pending.
+- Choice: Replace the placeholder roadmap with one asset-free R6 fighter reused
+  for players and a stationary training dummy, in a generated open-top arena.
+- Reason: The user's new request defines a concrete playable combat prototype.
+  Generated parts and procedural feedback avoid dependencies on uploaded assets.
+- Consequence: No extra fighters or broader game systems. The old empty-project
+  Studio check remains unrun and is carried into the stronger M1 acceptance test.
+
+## D007 — Responsive client presentation with server-owned combat
+
+- Date: 2026-10-27
+- Status: Implemented, engine behavior awaiting manual tests.
+- Choice: Client predicts movement/poses and sends only action intent. The server
+  selects moves, validates timing/state/geometry/occlusion, deduplicates targets,
+  and owns damage, stun, and hit knockback. Requests use a token bucket.
+- Reason: Input should feel immediate without letting a client choose a victim,
+  report a successful hit, or choose damage. Basic movement auditing catches
+  obvious displacement; it is not a full competitive anti-cheat or lag compensation.
+- Consequence: Use two-client and latency tests before claiming multiplayer feel
+  or production security. Stationary dummy knockback is intentionally suppressed.
+
+## D008 — Data-driven strings and fighter movement profiles
+
+- Date: 2026-10-27
+- Status: Implemented for the single test fighter.
+- Choice: Config.Fighters registers Combat and Movement tables; pure CombatRules
+  selects light strings/heavy finishers and handles cooldown and aerial limits.
+- Reason: A future fighter can use bespoke values, strings, and movement without
+  copying input/combat infrastructure. No additional fighter is implemented now.
+- Consequence: Keep configuration valid and test new move references. The 70/30
+  ground/air target requires playtest measurements rather than forced airtime quotas.
+
+## D009 — Test pure policies in the official Luau CLI
+
+- Date: 2026-10-27
+- Status: Implemented.
+- Choice: Pin Luau CLI 0.744 in CI with verified release checksum, run actual
+  shared policies, compile all Luau, analyze pure modules, and retain Rojo tests.
+- Reason: These are useful checks in Linux without pretending to run Roblox.
+- Consequence: Engine-dependent code still needs Studio API analysis, physics,
+  controller, camera, and local-server playtests. CI uploads a generated place
+  for reviewers when the workflow passes; generated files are not committed.

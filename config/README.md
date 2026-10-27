@@ -9,7 +9,9 @@ The active project configuration lives in the repository root:
 - `rokit.toml` pins the command-line Rojo version, so developers use the same tool.
 - `.github/workflows/validate.yml` runs the project checks on GitHub.
 
-Future settings that the game must read belong in a reviewed Luau module under
-`src/shared` (visible to players) or `src/server` (server-only). Never put passwords,
-API keys, or other secrets in source control or in shared/client code. This setup
+The prototype's gameplay values live in `src/shared/Config.luau`: fighter health,
+move strings, damage, timings, hitboxes, movement, camera, and arena dimensions.
+`Config.Fighters` registers combat/movement profiles; only the test fighter ships.
+Future private server settings belong under `src/server`. Never put passwords,
+API keys, or other secrets in source control or shared/client code. This prototype
 does not require any secrets or external game services.

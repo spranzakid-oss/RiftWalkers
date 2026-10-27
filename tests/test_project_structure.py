@@ -83,6 +83,20 @@ class ProjectStructureTests(unittest.TestCase):
         self.assertEqual(storage.attrib["class"], "ReplicatedStorage")
         self.assertEqual(children(storage)["Shared"].attrib["class"], "Folder")
 
+    def test_playable_entrypoints_and_modules_are_packaged(self):
+        services = children(self.place)
+        server = children(services["ServerScriptService"])["Server"]
+        self.assertEqual(children(server)["Main"].attrib["class"], "Script")
+        for module in ("World", "CombatService"):
+            self.assertEqual(children(server)[module].attrib["class"], "ModuleScript")
+        player_scripts = children(services["StarterPlayer"])["StarterPlayerScripts"]
+        client = children(player_scripts)["Client"]
+        self.assertEqual(children(client)["Controller"].attrib["class"], "LocalScript")
+        self.assertEqual(children(client)["CombatCamera"].attrib["class"], "ModuleScript")
+        shared = children(services["ReplicatedStorage"])["Shared"]
+        for module in ("Config", "CombatRules"):
+            self.assertEqual(children(shared)[module].attrib["class"], "ModuleScript")
+
     def test_development_files_are_not_shipped(self):
         names = {
             item.findtext("./Properties/string[@name='Name']")

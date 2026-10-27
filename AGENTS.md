@@ -3,9 +3,12 @@
 ## Project and current scope
 
 Rift Walkers is a Roblox creature-fighting and exploration game written in Luau.
-This repository starts with the development foundation only. Do not treat planned
-features as implemented. The initial setup task explicitly excludes gameplay.
-Follow the current user's request when deciding what work is authorized.
+The current milestone is the first playable arena combat prototype. The user
+authorized one test fighter, movement, camera, basic combat, and a training dummy
+after the foundation task. Do not treat planned features as implemented or
+manual Studio checks as completed. Rift Walking, evolution, monetization, and
+additional fighters remain outside this milestone. Follow the current user's
+request when deciding what work is authorized.
 
 ## Start every session
 
@@ -43,17 +46,18 @@ Never put secrets in Git, client code, or shared modules.
 ## Validate each meaningful change
 
 From the repository root, ensure the Rojo version matches `rokit.toml`. Install
-with `rokit install` if needed; Python 3.11+ is used only for development checks.
+with `rokit install` if needed. Python 3.11+ and the pinned Luau CLI are used only
+for development checks; follow `tests/README.md` for installation.
 
 ```sh
-python3 tests/test_project_structure.py
-mkdir -p build
-rojo build default.project.json --output build/RiftWalkers.rbxlx
-git diff --check
+python3 tests/run_checks.py
 ```
 
-On Windows, `py -3` can replace `python3`, and create `build` with your shell or
-File Explorer. The Python suite performs a real Rojo build in a temporary folder.
+On Windows, `py -3` can replace `python3`. The runner checks the built structure,
+compiles all Luau, analyzes pure modules, runs combat policy tests, and builds
+the place in `build`. In this cloud checkout, verified binaries are retained in
+`/workspace/.tools/rojo/7.6.1` and `/workspace/.tools/luau/0.744`; add these to
+the command's PATH if they are not already available.
 Missing tools or a failed build are failures to investigate, not successful or
 skipped tests. GitHub Actions runs the same project checks.
 
@@ -69,8 +73,8 @@ the checks that are available. Never call a cloud build a Studio playtest.
 - Update `PROJECT_STATUS.md` with what changed, the current milestone, blockers,
   and one concrete next task. Keep it consistent with `ROADMAP.md`.
 - Check roadmap tasks only after their acceptance checks pass. Continue to the
-  next incomplete task while it remains in scope; do not start gameplay under an
-  instruction that requests setup only.
+  next incomplete task while it remains in scope; do not expand beyond the
+  authorized prototype or silently skip manual acceptance checks.
 - Append actual commands, tool versions, dates, counts, and outcomes to
   `TEST_LOG.md`. Distinguish passed, failed, blocked, not run, and not applicable.
 - Record reproducible problems in `BUGS.md` with a stable ID, reproduction steps,
