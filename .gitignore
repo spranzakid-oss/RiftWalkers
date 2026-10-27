@@ -1,0 +1,29 @@
+# Generated Rojo places, models, and source maps.
+/build/
+/sourcemap.json
+
+# Local Roblox Studio places, autosaves, and locks.
+*.rbxl
+*.rbxlx
+*.rbxl.lock
+*.rbxlx.lock
+*.rbxm.lock
+*.rbxmx.lock
+*.rbxl.autosave
+*.rbxlx.autosave
+
+# Local environment settings and credentials.
+.env
+.env.*
+!.env.example
+
+# Tool outputs and Python's generated cache.
+/.tools/
+__pycache__/
+*.py[cod]
+
+# Machine-specific editor and OS files.
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db

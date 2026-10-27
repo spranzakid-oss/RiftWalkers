@@ -1,0 +1,35 @@
+name: Validate Rojo project
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  project-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned Rojo release
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 \
+            https://github.com/rojo-rbx/rojo/releases/download/v7.6.1/rojo-7.6.1-linux-x86_64.zip \
+            --output "$RUNNER_TEMP/rojo.zip"
+          echo "a9542a713036897fdbd0173e7a105ea409658333133c949025fcb6f1a7ca909d  $RUNNER_TEMP/rojo.zip" | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/rojo-bin"
+          unzip -o "$RUNNER_TEMP/rojo.zip" rojo -d "$RUNNER_TEMP/rojo-bin"
+          chmod +x "$RUNNER_TEMP/rojo-bin/rojo"
+          echo "$RUNNER_TEMP/rojo-bin" >> "$GITHUB_PATH"
+      - name: Test project structure and Rojo build
+        run: python3 tests/test_project_structure.py
+      - name: Build Roblox place
+        run: |
+          mkdir -p build
+          rojo build default.project.json --output build/RiftWalkers.rbxlx
