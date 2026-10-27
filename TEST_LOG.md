@@ -50,6 +50,8 @@ PATH=/workspace/.tools/luau/0.744:/workspace/.tools/rojo/7.6.1:$PATH python3 tes
 | Studio solo Play and engine API checks | Not run: Studio unavailable on Linux. |
 | Two-player local server, network latency, controller hardware | Not run: requires Studio and input hardware. |
 | 70/30 ground/air ratio and combat/camera feel | Not measured: starting values need playtests. |
+| Development branch delivery | Passed: implementation commit `be0f2ba` pushed to `development/combat-prototype`. |
+| Pull-request creation | Blocked: `gh pr create` returned `Post https://api.github.com/graphql: Forbidden`. No PR opened; description prepared in `docs/combat-pull-request.md`. |
 
 Next: run the full manual acceptance matrix in `docs/combat-prototype.md`, then
 log actual Studio version/results and any reproducible bugs. Do not treat cloud

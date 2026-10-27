@@ -19,6 +19,12 @@ Implemented on `development/combat-prototype`:
 - Arena generation, death/respawn, dummy reset, keyboard/mouse/controller bindings.
 - Automated packaging, Luau compilation, and pure combat policy tests in CI.
 
+Implementation commit: `be0f2ba`. The branch was pushed to GitHub. An actual
+`gh pr create` attempt failed with `Forbidden` at `api.github.com/graphql`;
+**no combat pull request was opened**. The prepared description is in
+[docs/combat-pull-request.md](docs/combat-pull-request.md). Open a pull request
+from this branch into `main` using GitHub's web interface when reviewing.
+
 Five Python packaging tests and 28 Luau policy tests pass; all eight source/test
 Luau files compile, and pure module analysis passes. See [TEST_LOG.md](TEST_LOG.md).
 These results do not validate Roblox physics, input hardware, or camera feel.
