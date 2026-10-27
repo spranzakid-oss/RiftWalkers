@@ -26,6 +26,7 @@ def main():
     run("luau", "tests/combat_rules.spec.luau")
     (ROOT / "build").mkdir(exist_ok=True)
     run("rojo", "build", "default.project.json", "--output", "build/RiftWalkers.rbxlx")
+    run("rojo", "build", "sync.project.json", "--output", "build/RiftWalkersSync.rbxlx")
     run("git", "diff", "--check")
 
 

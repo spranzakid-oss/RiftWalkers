@@ -87,3 +87,18 @@ Record choices that future contributors need to understand. Explain why a choice
 - Consequence: Engine-dependent code still needs Studio API analysis, physics,
   controller, camera, and local-server playtests. CI uploads a generated place
   for reviewers when the workflow passes; generated files are not committed.
+
+## D013 — Use a startup-only profile for the first Studio connection
+
+- Date: 2026-10-27
+- Status: Implemented; Studio verification pending user report.
+- Choice: Preserve the earlier full project and combat source. Add
+  `sync.project.json`, which maps shared modules plus only two startup print
+  scripts into the normal Roblox services. Keep `default.project.json` unchanged.
+- Reason: The user asked for local file synchronization and explicitly excluded
+  combat work. Latest main already includes the earlier prototype, so a separate
+  profile makes the first connection small without losing completed work.
+- Consequence: Use `rojo serve sync.project.json --address 127.0.0.1 --port 34872`
+  on the Windows computer running Studio. A CLI response or built place is not
+  evidence that Studio connected or executed either script. Those results await
+  the user. The design baseline remains on its separate unmerged branch.

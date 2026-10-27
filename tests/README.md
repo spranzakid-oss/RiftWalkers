@@ -35,11 +35,11 @@ Use the checksum for your own platform, not the Linux hash for a Windows archive
 
 | Check | What it establishes |
 | --- | --- |
-| `python3 tests/test_project_structure.py` | 5 tests build a temporary place and inspect script classes, source paths, server/client separation, and excluded development files. |
+| `python3 tests/test_project_structure.py` | 6 tests build both profiles and inspect script classes, source paths, server/client separation, excluded development files, and exactly two startup-only executable scripts. |
 | `luau-compile --null` over source and test files | All Luau parses and compiles, including engine-dependent code. This does not typecheck Roblox APIs. |
 | `luau-analyze` on Config, CombatRules, and the spec | Pure modules/test code pass standalone type analysis. Engine scripts require Studio's Roblox types and are not covered by this check. |
 | `luau tests/combat_rules.spec.luau` | 28 behavior cases cover strings, reset timing, finishers, customization, aerial moves, rejection states, dash allowance, geometry boundaries, active-window catch-up, config integrity, and request rate limiting. |
-| `rojo build` | Writes `build/RiftWalkers.rbxlx` for manual Studio testing. |
+| `rojo build` | Writes the existing full place and startup-only `build/RiftWalkersSync.rbxlx` for manual Studio testing. |
 | `git diff --check` | Checks whitespace in changes. |
 
 The Luau tests execute the same pure rules the server calls; they do not duplicate
@@ -52,3 +52,8 @@ No command above starts a Roblox server, simulates network ownership, validates
 engine APIs, exercises the camera, or tests a controller. Follow the concrete
 solo and two-player checklist in [docs/combat-prototype.md](../docs/combat-prototype.md).
 Record every actual test in TEST_LOG.md and any reproducible failure in BUGS.md.
+
+For the first local file-sync check, use [the Windows guide](../docs/windows-rojo.md)
+and `sync.project.json`. Those manual connection/print/edit checks remain unrun
+until the user verifies them. Rojo alone is sufficient to serve files; Python
+and the standalone Luau CLI are needed only for development checks.

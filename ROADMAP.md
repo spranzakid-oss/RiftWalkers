@@ -16,6 +16,22 @@ in M1's stronger playable acceptance checklist below.
 
 ## M1 — Playable combat prototype (implemented; manual acceptance pending)
 
+Before the user's first combat playtest, complete this smaller local setup task:
+
+### S0 — First Windows Rojo synchronization
+
+- [x] Check the full project's shared/server/client service mappings.
+- [x] Add a startup-only profile and tiny server/client print scripts.
+- [x] Build and inspect both profiles; verify the startup-only CLI server response.
+- [x] Document Windows commands, plugin connection, Output, and saved-file checks.
+- [ ] User confirms Windows Rojo installation and Studio plugin connection.
+- [ ] User confirms both print messages after Play.
+- [ ] User confirms a saved local edit updates Studio and prints after Stop/Play.
+
+Studio verification is pending. The setup task does not add or expand combat.
+
+### Preserved M1 implementation and acceptance
+
 - [x] Document the authorized prototype, controls, architecture, and acceptance checks.
 - [x] Create one reusable temporary fighter, arena, stationary dummy, and respawns.
 - [x] Implement ground movement, sprint, jump, dash, and limited aerial movement.
@@ -28,7 +44,7 @@ in M1's stronger playable acceptance checklist below.
 - [ ] Run two-player local-server acceptance and compare damage on both clients.
 - [ ] Run controller hardware checks and record actual results.
 - [ ] Measure responsiveness and ground/air balance; tune and fix confirmed issues.
-- [ ] Create/review the combat pull request and merge when accepted.
+- [x] Merge the generic combat implementation through pull request #2.
 
 Start with the first manual check in [docs/combat-prototype.md](docs/combat-prototype.md).
 Do not describe the milestone as playtested or accepted before those results exist.

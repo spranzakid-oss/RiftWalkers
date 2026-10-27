@@ -57,6 +57,38 @@ Next: run the full manual acceptance matrix in `docs/combat-prototype.md`, then
 log actual Studio version/results and any reproducible bugs. Do not treat cloud
 policy tests or a built place as proof of Roblox gameplay behavior.
 
+## 2026-10-27 — First local Rojo synchronization setup
+
+Task baseline: verified remote main
+`a27d8f1ffdb8721a528f0b258ef76da6a77a1762`, with prior combat PR #2 already
+merged. Work is on `development/rojo-studio-sync`. Existing combat and
+`default.project.json` are unchanged; the earlier design branch remains intact.
+
+| Check | Actual result |
+| --- | --- |
+| Cloud Rojo availability | Verified: `/workspace/.tools/rojo/7.6.1/rojo --version` reports Rojo 7.6.1. Not on the default command PATH; verified path used. This does not inspect Windows. |
+| Startup-only project build | Passed: `rojo build sync.project.json --output build/RiftWalkersSync.rbxlx`. |
+| Packaging suite | Passed: 6 tests, 0 failed/skipped in the final run. Confirms exactly two executable startup scripts, correct classes/locations/messages, Shared ModuleScripts, and the preserved full profile. |
+| New test development | Initial run errored because the test expected a ProtectedString XML tag; Rojo emits Source as string. Selector corrected to inspect the Source property; final run passed. No application defect was inferred. |
+| Luau compilation / pure analysis | Passed: all 10 source/test files compile; pure modules/spec analyze cleanly. |
+| Existing rule tests | Passed: 28 cases, 0 failed/skipped. No combat behavior was changed. |
+| Full project build / whitespace | Passed: existing place builds and `git diff --check` passes. |
+| `rojo serve sync.project.json --address 127.0.0.1 --port 34872` | Passed in cloud: GET `/api/rojo` returned HTTP 200, name `RiftWalkersSync`, version `7.6.1`. Test server stopped afterward. |
+| Windows Rojo / Studio plugin | Not verified: the user must run the documented local commands. |
+| Startup scripts executing in Studio | Not run here. User must confirm both recognizable Output lines after Play. |
+| Saved-file sync into Studio | Not run here. User must save a local message edit, inspect the Studio source, then Stop/Play and confirm it. |
+| Hosted CI | Not observed here. |
+
+Full check command, from the repository root:
+
+```sh
+PATH=/workspace/.tools/rojo/7.6.1:/workspace/.tools/luau/0.744:$PATH python3 tests/run_checks.py
+```
+
+The Windows guide is `docs/windows-rojo.md`. Leave its manual checklist unchecked
+until the user provides actual results. A cloud CLI response, correct XML, or a
+compiled print statement does not prove Studio synchronization or execution.
+
 ## Future entry template
 
 Copy this format when adding results:

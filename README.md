@@ -10,6 +10,11 @@ light/heavy strings, health, damage, hit reactions, an arena, and a training dum
 The broader game features above remain plans. **Roblox Studio playtesting has
 not been performed here.** See [PROJECT_STATUS.md](PROJECT_STATUS.md) for progress.
 
+**First Studio connection:** use [the Windows Rojo guide](docs/windows-rojo.md)
+and `sync.project.json`. This startup-only profile syncs two recognizable print
+scripts while keeping the earlier prototype's executable code out of this check.
+It adds no combat functionality and does not remove the existing prototype files.
+
 Development uses OpenAI Codex, GitHub, Roblox Studio, and **Rojo**. Rojo turns
 files in this repository into Roblox objects and can keep them in sync with
 Studio. **Luau** is Roblox's scripting language; its source files live in `src`.
@@ -31,11 +36,13 @@ DECISIONS.md              Important choices and their reasons
 BUGS.md                   Known problems and reproduction steps
 TEST_LOG.md               Checks that actually ran and their results
 default.project.json      Maps source folders into Roblox
+sync.project.json         Startup-only profile for the first Studio connection
 rokit.toml                Pins the Rojo tool version
 .github/workflows/        Automatic checks on GitHub
 ```
 
-The server creates the temporary arena and fighters when you press **Play**.
+When using `default.project.json`, the server creates the temporary arena and
+fighters when you press **Play**. The startup-only sync profile prints messages.
 They are built from simple Roblox parts, so no uploaded art or animation assets
 are needed. Source files remain the source of truth; generated places stay out
 of Git.
@@ -97,19 +104,33 @@ because it can be recreated. These checks do not run Roblox engine gameplay.
 GitHub Actions runs the same checks and, on success, saves the place as the
 `RiftWalkers-prototype` artifact in the workflow run's **Artifacts** section.
 
-## Connect to Studio for editing
+## First connection to Studio
 
-On the **same Windows/macOS computer** running Studio:
+Open PowerShell in the local project folder on the **same Windows computer**
+running Studio. Follow [every command and click here](docs/windows-rojo.md).
+After installing the matching Rojo plugin, the server command is:
 
-1. Build and open `build/RiftWalkers.rbxlx` in Studio, or create a new blank place.
-2. Run `rojo serve default.project.json` in the repository terminal. Keep it open.
-3. Open the Rojo plugin in Studio and connect to `localhost` on port `34872`.
-   Review the proposed sync changes before accepting them.
-4. In Explorer, confirm the three source folders appear in the locations listed
-   above. Click **Play**, then inspect **Output** for project errors. The arena,
-   controllable test fighter, training dummy, and controls HUD should appear.
-5. Record the Studio version and result in [TEST_LOG.md](TEST_LOG.md). Stop the
-   server with Ctrl+C when finished.
+```powershell
+rojo serve sync.project.json --address 127.0.0.1 --port 34872
+```
+
+Keep the terminal open. In a fresh Studio Baseplate, open **Plugins → Rojo**,
+connect to `localhost:34872`, review/accept the sync, then use **Play**, not Run.
+Open Output and show both client and server messages. Expect:
+
+```text
+[Rift Walkers][SERVER] Rojo sync OK
+[Rift Walkers][CLIENT] Rojo sync OK
+```
+
+The first line comes from `src/server/Startup.server.luau`; the second comes from
+`src/client/Startup.client.luau`. Shared ModuleScripts do not run by themselves.
+Save a local change to a print message, check that Studio's source updates, then
+Stop/Play to see the new message. Record your actual result in TEST_LOG.md.
+
+`default.project.json` retains the existing full source mappings and starts the
+earlier combat prototype. Use that profile only when deliberately testing it;
+the beginner synchronization check above uses `sync.project.json`.
 
 Do not point a personal Studio installation at the cloud machine's `localhost`;
 that address always means the computer on which it is used. Use a local checkout
@@ -141,13 +162,14 @@ configuration, architecture, and the solo/controller/two-player Studio checklist
 Read [AGENTS.md](AGENTS.md), then [PROJECT_STATUS.md](PROJECT_STATUS.md) and
 [ROADMAP.md](ROADMAP.md). Future sessions should continue the next incomplete
 task, run the available checks, and update the records. The next task is the
-manual Milestone 1 Studio acceptance checklist. Tune or fix confirmed problems
+startup-only Windows check in [the Rojo guide](docs/windows-rojo.md), followed
+later by Milestone 1 Studio acceptance. Tune or fix confirmed problems
 before adding features. Additional fighters, Rift Walking, evolution, and
 monetization are not part of this prototype.
 
-## Put the prototype onto main
+## Review the synchronization setup
 
-The combat branch is `development/combat-prototype`. A **branch** holds proposed
+The sync branch is `development/rojo-studio-sync`. A **branch** holds proposed
 changes without changing `main`. A **pull request** lets you review and merge
 those changes on GitHub.
 
@@ -155,12 +177,12 @@ If the branch is only committed locally, push it from the checkout containing
 the commit:
 
 ```sh
-git push -u origin development/combat-prototype
+git push -u origin development/rojo-studio-sync
 ```
 
 On GitHub, choose **Compare & pull request**, set the base to `main` and the
-compare branch to `development/combat-prototype`, and review the files. Wait for
+compare branch to `development/rojo-studio-sync`, and review the files. Wait for
 the project checks to pass, then select **Merge pull request** (or **Squash and
-merge**) and confirm. This makes the prototype part of `main`. Do not force-push or
+merge**) and confirm. This makes the sync setup part of `main`. Do not force-push or
 replace `main`. The session's final report will say whether the branch was
 pushed and whether a pull request was actually created.

@@ -10,6 +10,12 @@ manual Studio checks as completed. Rift Walking, evolution, monetization, and
 additional fighters remain outside this milestone. Follow the current user's
 request when deciding what work is authorized.
 
+For the first Windows Rojo connection, use `sync.project.json` and
+`docs/windows-rojo.md`. That profile runs only the two startup print scripts.
+`default.project.json` retains the earlier combat prototype; do not expand combat
+as part of a synchronization setup request. Studio checks stay pending until the
+user supplies actual verification.
+
 ## Start every session
 
 1. Read `README.md`, `PROJECT_STATUS.md`, `ROADMAP.md`, `DECISIONS.md`, `BUGS.md`,

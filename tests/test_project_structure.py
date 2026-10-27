@@ -48,6 +48,16 @@ class ProjectStructureTests(unittest.TestCase):
             if result.returncode != 0:
                 raise RuntimeError(f"Rojo build failed:\n{result.stdout}\n{result.stderr}")
             cls.place = ET.parse(place).getroot()
+            sync_place = Path(directory) / "RiftWalkersSync.rbxlx"
+            subprocess.run(
+                [rojo, "build", "sync.project.json", "--output", str(sync_place)],
+                cwd=ROOT,
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=60,
+            )
+            cls.sync_place = ET.parse(sync_place).getroot()
 
     def test_source_paths_are_present_and_confined_to_repository(self):
         paths = []
@@ -104,6 +114,27 @@ class ProjectStructureTests(unittest.TestCase):
         }
         for name in (".gitkeep", "docs", "config", "tests", "AGENTS", "README"):
             self.assertNotIn(name, names)
+
+    def test_sync_profile_packages_only_startup_scripts_and_shared_modules(self):
+        services = children(self.sync_place)
+        server = children(services["ServerScriptService"])["Server"]
+        player_scripts = children(services["StarterPlayer"])["StarterPlayerScripts"]
+        client = children(player_scripts)["Client"]
+        for container, expected_class, marker in (
+            (server, "Script", "[Rift Walkers][SERVER] Rojo sync OK"),
+            (client, "LocalScript", "[Rift Walkers][CLIENT] Rojo sync OK"),
+        ):
+            self.assertEqual(set(children(container)), {"Startup"})
+            startup = children(container)["Startup"]
+            self.assertEqual(startup.attrib["class"], expected_class)
+            self.assertIn(marker, startup.findtext("./Properties/*[@name='Source']", ""))
+        shared = children(services["ReplicatedStorage"])["Shared"]
+        self.assertEqual(shared.attrib["class"], "Folder")
+        self.assertTrue(children(shared))
+        for module in children(shared).values():
+            self.assertEqual(module.attrib["class"], "ModuleScript")
+        scripts = [item for item in self.sync_place.iter("Item") if item.attrib["class"] in {"Script", "LocalScript"}]
+        self.assertEqual(len(scripts), 2, "First-sync place must not execute combat bootstraps")
 
 
 if __name__ == "__main__":
