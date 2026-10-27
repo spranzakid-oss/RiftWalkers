@@ -1,47 +1,49 @@
 # Roadmap
 
-This is a development order, not a promise of release dates. A checked box means the work was completed and its checks were recorded. All gameplay below is unimplemented.
+A checked task has implementation and available evidence. Manual acceptance
+stays unchecked until actually performed. The user's combat request replaces the
+original placeholder M1–M3 plan with the concrete milestone below.
 
-## M0 — Project foundation
+## M0 — Project foundation (complete)
 
-- [x] Create the source, documentation, configuration, and test folders.
-- [x] Add the Rojo project mapping and tool version pin.
-- [x] Add instructions for contributors and future Codex sessions.
-- [x] Add the status, decision, bug, and test records.
-- [x] Run the available structure checks and build a Roblox place with Rojo.
-- [x] Commit the setup on a development branch and document how to merge it.
+- [x] Create the Rojo source, documentation, configuration, and test layout.
+- [x] Add contributor instructions and progress/decision/bug/test records.
+- [x] Pin Rojo and run packaging tests and an actual place build.
+- [x] Commit, push, and merge the foundation through pull request #1.
 
-Complete this milestone before continuing. The Studio check belongs to M1 and must not be reported as completed by a cloud build.
+The original empty-project Studio check was not run in the cloud; it is included
+in M1's stronger playable acceptance checklist below.
 
-## M1 — Studio connection and an empty-project smoke test
+## M1 — Playable combat prototype (implemented; manual acceptance pending)
 
-- [ ] Install the pinned Rojo CLI and the Rojo Studio plugin on the developer's computer.
-- [ ] Open the generated place or connect Studio to the local Rojo server.
-- [ ] Confirm the client, server, and shared folders appear in the expected services.
-- [ ] Use Studio's Play button and confirm that the empty project starts without project errors in Output.
-- [ ] Record the Studio version, steps, result, and any errors in TEST_LOG.md and BUGS.md.
+- [x] Document the authorized prototype, controls, architecture, and acceptance checks.
+- [x] Create one reusable temporary fighter, arena, stationary dummy, and respawns.
+- [x] Implement ground movement, sprint, jump, dash, and limited aerial movement.
+- [x] Implement two-fighter camera framing and target selection.
+- [x] Implement server-validated light/heavy attacks and configurable combo strings.
+- [x] Implement health, damage, stun, knockback, and readable placeholder feedback.
+- [x] Bind keyboard/mouse and controller actions.
+- [x] Run packaging checks, Luau compilation, pure rule tests, and a Rojo place build.
+- [ ] Run solo Studio acceptance, including Output and camera checks.
+- [ ] Run two-player local-server acceptance and compare damage on both clients.
+- [ ] Run controller hardware checks and record actual results.
+- [ ] Measure responsiveness and ground/air balance; tune and fix confirmed issues.
+- [ ] Create/review the combat pull request and merge when accepted.
 
-This milestone verifies the editing workflow. It does not require a game mechanic. If Studio is unavailable, record the blocker and continue only with independent work the user has authorized.
+Start with the first manual check in [docs/combat-prototype.md](docs/combat-prototype.md).
+Do not describe the milestone as playtested or accepted before those results exist.
 
-## M2 — Plan the first playable slice
+## M2 — Plan the next slice (not started)
 
-- [ ] Agree on one small, testable experience with the user before implementing gameplay.
-- [ ] Write a short specification in docs/ describing the intended player actions, success conditions, and limits.
-- [ ] Decide which code belongs on the server, which belongs on the client, and what information may be shared.
-- [ ] Break the approved slice into small implementation tasks and define how each will be tested.
+- [ ] Use M1 test results and the user's direction to choose the next small slice.
+- [ ] Write its limits and acceptance checks before implementation.
+- [ ] Decide whether a character-specific moveset or another system is appropriate.
 
-No mechanic or architecture beyond the project foundation is approved by this roadmap alone.
+Rift Walking, evolution, monetization, additional fighters, and broader PvP
+systems remain future work. This roadmap alone does not authorize them.
 
-## M3 — Build the approved playable slice
+## Session handoff
 
-- [ ] Implement only the slice agreed in M2.
-- [ ] Add meaningful automated checks where possible and Studio playtests where required.
-- [ ] Document known bugs and what remains incomplete before expanding scope.
-
-## Later milestones — Plan after the first slice
-
-Possible future areas include creatures and evolution, elemental Rift expeditions, optional two-player exploration, and competitive PvP. Plan their requirements, security checks, persistence needs, and tests before implementation. Their order and scope remain undecided.
-
-## How to continue
-
-Start with the first unchecked task in the earliest unfinished milestone. Check PROJECT_STATUS.md for blockers and recent work. Ask for a decision only when a missing answer prevents useful progress; otherwise complete the authorized task and record what happened.
+Read AGENTS.md and PROJECT_STATUS.md first. Continue the next incomplete task in
+scope, document blockers, and keep passed/failed/unrun results distinct. If Studio
+is unavailable, complete useful independent work without pretending manual checks ran.

@@ -24,6 +24,37 @@ other computers; use Rokit as documented in the README.
 
 The foundation checks validate folder mapping and packaging. They do not simulate a Roblox server or prove gameplay behavior.
 
+## 2026-10-27 — Milestone 1 combat prototype
+
+Environment: Linux x86_64, Python 3.12.14, Rojo 7.6.1, official Luau CLI 0.744.
+Luau was installed outside the checkout from the official `luau-lang/luau`
+release after SHA-256 verification:
+`6506f0852c623aaffcb28494aac16c26dc04a269ea0e16cc0aafc8c8ac79f3ec`.
+
+Command executed from the repository root:
+
+```sh
+PATH=/workspace/.tools/luau/0.744:/workspace/.tools/rojo/7.6.1:$PATH python3 tests/run_checks.py
+```
+
+| Check | Actual result |
+| --- | --- |
+| Python project/build suite | Passed: 5 tests, 0 failures, 0 skipped. Real temporary place inspected for executable entrypoints, module classes, correct service placement, and excluded development files. |
+| Luau compilation | Passed: all 8 source/test files compiled with `luau-compile --null`. |
+| Standalone type analysis | Passed: Config, CombatRules, and the Luau spec analyzed with no findings. Engine-dependent scripts were not typechecked against Roblox APIs. |
+| Pure combat rules | Passed: 28 cases, 0 failures, 0 skipped. Covers strings, reset/buffer-related recovery gates, finishers, airborne rules, rejection states, dash limits, geometry, active-window crossing, config integrity, and token bucket behavior. The actual network queue is not simulated. |
+| Final Rojo build | Passed: produced `build/RiftWalkers.rbxlx`; generated file is ignored by Git. |
+| Whitespace | Passed: `git diff --check`. |
+| Independent code review | Completed: server lifecycle/network checks and client input/camera paths reviewed. Corrected window-crossing and camera collision issues; see BUG-001/002. This is not engine execution. |
+| GitHub-hosted workflow | Not observed here. The workflow now runs the full runner and uploads the place after a successful run. |
+| Studio solo Play and engine API checks | Not run: Studio unavailable on Linux. |
+| Two-player local server, network latency, controller hardware | Not run: requires Studio and input hardware. |
+| 70/30 ground/air ratio and combat/camera feel | Not measured: starting values need playtests. |
+
+Next: run the full manual acceptance matrix in `docs/combat-prototype.md`, then
+log actual Studio version/results and any reproducible bugs. Do not treat cloud
+policy tests or a built place as proof of Roblox gameplay behavior.
+
 ## Future entry template
 
 Copy this format when adding results:

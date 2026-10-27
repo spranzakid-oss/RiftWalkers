@@ -2,42 +2,51 @@
 
 Last updated: 2026-10-27
 
-Rift Walkers is at the project setup stage. The planned game is a Roblox creature-fighting and exploration game. No gameplay has been implemented.
+## Current milestone: M1 — Playable combat prototype
 
-## Completed milestone: M0 — Project foundation
+Implementation and cloud validation are complete; manual Roblox Studio acceptance
+is **pending**. A build is ready for manual testing, not a verified playable release.
+The user authorized this milestone after the foundation setup.
 
-The folder layout, Rojo mapping, contributor instructions, tracking documents,
-and GitHub Actions workflow are in place on `development/project-setup`. Four
-automated checks and a real Rojo build passed. The local Rojo synchronization
-server also responded successfully. See [TEST_LOG.md](TEST_LOG.md) for evidence
-and [README.md](README.md#put-this-setup-onto-main) for merge instructions.
+Implemented on `development/combat-prototype`:
+
+- One reusable, asset-free R6 test fighter for players, plus a stationary dummy.
+- Walking, sprinting, jumping, directional dash, one air dash, and air steering.
+- Automatic target selection/cycling and a dynamic camera that frames a pair.
+- Data-driven light strings, heavy finishers, and separate aerial moves.
+- Server-owned hit timing, geometry, wall checks, damage, stun, and knockback.
+- Health/target HUD, procedural attack/stagger poses, hit flashes, damage numbers.
+- Arena generation, death/respawn, dummy reset, keyboard/mouse/controller bindings.
+- Automated packaging, Luau compilation, and pure combat policy tests in CI.
+
+Five Python packaging tests and 28 Luau policy tests pass; all eight source/test
+Luau files compile, and pure module analysis passes. See [TEST_LOG.md](TEST_LOG.md).
+These results do not validate Roblox physics, input hardware, or camera feel.
 
 ## Next incomplete task
 
-Continue with **M1: Studio connection and an empty-project smoke test** in
-[ROADMAP.md](ROADMAP.md). First install the pinned Rojo CLI and its Studio plugin
-on a Windows or macOS computer, following the README.
+On Windows or macOS, follow [docs/combat-prototype.md](docs/combat-prototype.md)
+to build/open the place and run the **solo Studio acceptance checklist**, then
+the local-server **two-player** and controller checks. Record the Studio version,
+results, and any Output errors. Add reproducible failures to BUGS.md and fix them
+before expanding the prototype.
 
-M1 needs Roblox Studio on a supported Windows or macOS computer. Open the generated place or connect the Rojo plugin, confirm that the mapped folders appear, and run the empty place with no project errors. This cloud environment cannot perform that Studio check.
+## Limitations and blockers
 
-## What exists
+- Roblox Studio is unavailable in this Linux environment. No Studio Play, local
+  multiplayer simulation, controller hardware check, or engine type analysis ran.
+- The 70/30 ground/air mix and movement/combat/camera feel need measured playtests.
+- Hit detection uses current server geometry; it has no client rewind or lag
+  compensation. The basic travel audit is lenient, not a complete anti-cheat.
+- The open-top arena supports camera side/overhead fallbacks. Arbitrary enclosed
+  future maps may constrain framing and require additional camera work.
+- The GitHub API endpoint is blocked in this environment. Git branch push works;
+  actual pull-request creation remains separate from preparing/pushing the branch.
 
-- Separate places for client, server, and shared Luau source files.
-- A Rojo project file that maps those folders into Roblox services.
-- Setup guidance, project tracking, and checks for the initial structure.
-- A pinned Rojo 7.6.1 tool definition and automated GitHub checks. GitHub-hosted
-  checks must still run after the branch is pushed; only local checks ran here.
+## Completed and deferred work
 
-## What does not exist yet
-
-Combat, creatures, expeditions, cooperation, PvP, persistence, maps, and user interfaces are future work. A successful build means the project can be packaged; it does not mean these game features exist or have been tested.
-
-## Session handoff
-
-Read [AGENTS.md](AGENTS.md), this file, and the roadmap before changing anything. Work on the first incomplete task within the user's request. Update the status, test log, decisions, and bug list when relevant. Do not begin gameplay implementation as part of this setup task.
-
-The setup is prepared on a development branch; it must be merged before it is
-part of `main`. Roblox Studio is unavailable in this Linux cloud environment,
-and the GitHub API is unavailable here, so do not claim a Studio playtest or an
-automatically opened pull request. Neither limitation prevents local edits,
-builds, tests, or creating a Git commit.
+M0 foundation setup was merged into `main` through pull request #1. The previous
+empty-project Studio check is carried forward into the stronger M1 acceptance
+check rather than marked as performed. M1 is not fully accepted until those
+manual results are recorded. No Rift Walking, evolution, monetization,
+persistence, extra fighters, or additional game modes were implemented.
